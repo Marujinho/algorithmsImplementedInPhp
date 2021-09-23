@@ -1,6 +1,6 @@
 <?php
 
-require_once('LinkedList.php');
+require_once('Node.php');
 
 class Stack{
 
