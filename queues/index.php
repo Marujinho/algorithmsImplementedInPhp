@@ -4,8 +4,8 @@ require_once('Node.php');
 
 class Queue{
 
-    private $head;
-    private $tail;
+    protected $head;
+    protected $tail;
 
     public function __construct()
     {
@@ -50,6 +50,30 @@ class Queue{
         }
 
         return $data;
+    }
+
+    public function removeByValue($value)
+    {
+        if($this->head == null) {
+            return;
+        }
+
+        if($this->head->data == $value){
+            $this->head = $this->head->next;
+        }
+
+        $current = $this->head;
+
+        while($current->next != null) {
+            
+            if($current->next->data == $value){
+                $current->next = $current->next->next;
+                return;
+            }
+
+            $current = $current->next;
+            
+        }
     }
 
 }
